@@ -3,6 +3,10 @@ Scfbe::Application.routes.draw do
   devise_for :users
   resources :issues
 
+  namespace :api do
+    post 'issues' => 'issues#create'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
