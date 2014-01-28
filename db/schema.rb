@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128123126) do
+ActiveRecord::Schema.define(version: 20140128141933) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140128123126) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "snapshot"
   end
 
   add_index "issues", ["user_id"], name: "index_issues_on_user_id"
