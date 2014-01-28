@@ -1,4 +1,6 @@
 Scfbe::Application.routes.draw do
+  devise_for :admins
+  devise_for :users
   resources :issues
 
   # The priority is based upon order of creation: first created -> highest priority.

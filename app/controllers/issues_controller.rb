@@ -1,10 +1,12 @@
 class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /issues
   # GET /issues.json
   def index
     @issues = Issue.all
+    @recent_issues = Issue.order({:created_at => :desc})
   end
 
   # GET /issues/1
@@ -25,6 +27,7 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
+    @issue.user_id = current_user.id
 
     respond_to do |format|
       if @issue.save
