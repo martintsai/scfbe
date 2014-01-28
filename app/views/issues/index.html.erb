@@ -6,6 +6,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Title</th>
       <th>Details</th>
       <th>Time Posted</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @recent_issues.each do |issue| %>
       <tr>
+        <td><%= image_tag issue.snapshot_url.to_s %></td>
         <td><%= issue.title %></td>
         <td><%= issue.details %></td>
         <td><%= issue.created_at %></td>
