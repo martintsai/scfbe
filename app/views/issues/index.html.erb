@@ -1,33 +1,46 @@
-<h1>Listing Issues</h1>
+<div class="container">
+  <div class="feed">
 
+    <h1>Listing Issues</h1>
 
-<h2>Sorted by Most Recent</h2>
+    <%= button_to 'New Issue', new_issue_path, :method => :get, :class => 'btn btn-large btn-success' %>
+    <br>
+    <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Details</th>
-      <th>Time Posted</th>
-      <th>User</th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @recent_issues.each do |issue| %>
-      <tr>
-        <td><%= issue.title %></td>
-        <td><%= issue.details %></td>
-        <td><%= issue.created_at %></td>
-        <td><%= issue.user_id %></td>
-        <td><%= link_to 'Show', issue %></td>
+      <div class="panel panel-default">
+        <div class="panel-heading">  
+          <%= link_to issue.title, issue %><br>
+          <%= issue.details %><br>
+          <%= issue.created_at %> by <%= issue.user.email %> 
+        </div>
+
+        <% if issue.comments.count > 0 %>
+          <div class="panel-body">  
+             
+            <% issue.comments.each do |comment| %>
+              <div class="panel panel-default">
+                <div class="panel-heading">  
+                  <%= comment.user.email %><br>
+                  <%= comment.content %><br>
+                  <%= comment.created_at %>
+
+                </div>
+              </div>
+            <% end %>
+           
+          </div>
+        <% end %>
+      </div>
+
+        <!-- <td><%= link_to 'Show', issue %></td>
         <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-        <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+  
 
-<br>
 
-<%= link_to 'New Issue', new_issue_path %>
+

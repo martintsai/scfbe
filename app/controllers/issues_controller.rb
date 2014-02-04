@@ -12,6 +12,8 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
+    @comments = @issue.comments
+    @comment = Comment.new
   end
 
   # GET /issues/new

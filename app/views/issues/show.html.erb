@@ -15,5 +15,57 @@
   <%= @issue.user_id %>
 </p>
 
+<table>
+	<thead>
+		<tr>
+			<th>Content</th>
+			<th>User</th>
+			<th>Issue</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @comments.each do |comment| %>
+			<tr>
+				<td><%= comment.content %></td>
+				<td><%= comment.user_id %></td>
+				<td><%= comment.issue_id %></td>
+				<td><%= link_to 'Show', comment %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= form_for(@comment) do |f| %>
+	<% if @comment.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+			<ul>
+				<% @comment.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+		    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :content %><br>
+		<%= f.text_area :content %>
+		<%= f.hidden_field :issue_id, value: @issue.id %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>
+
+
+
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>
