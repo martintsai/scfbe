@@ -52,3 +52,8 @@ gem 'devise'
 gem 'debugger', group: [:development, :test]
 
 gem "carrierwave"
+
+gem 'bootstrap-sass'
+gem 'haml-rails'
+
+gem "therubyracer"

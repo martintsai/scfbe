@@ -1,4 +1,5 @@
 Scfbe::Application.routes.draw do
+  root to: "home#index"
   resources :comments
 
   devise_for :admins
@@ -8,6 +9,8 @@ Scfbe::Application.routes.draw do
   namespace :api do
     post 'issues' => 'issues#create'
   end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
