@@ -6,7 +6,9 @@ Scfbe::Application.routes.draw do
   resources :issues
 
   namespace :api do
-    post 'issues' => 'issues#create'
+    namespace :v1 do
+      post 'issues' => 'issues#create'
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

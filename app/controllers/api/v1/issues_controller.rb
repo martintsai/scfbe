@@ -1,4 +1,4 @@
-class Api::IssuesController < ApplicationController
+class Api::V1::IssuesController < ApplicationController
   protect_from_forgery with: :null_session
 
   respond_to :json
@@ -7,6 +7,8 @@ class Api::IssuesController < ApplicationController
   # POST /api/issues.json
   def create
     @issue = Issue.new(issue_params)
+    #FIXME: just for testing
+    @issue.user_id = User.first.id
 
     if @issue.save
       render nothing: true, status: :created
