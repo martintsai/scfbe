@@ -56,9 +56,15 @@ describe IssuesController do
   end
 
   describe "#update" do
+    it "updates the requested issue" do
+      issue = FactoryGirl.create(:issue)
+      Issue.any_instance.should_receive(:update)
 
+      put :update, {:id => issue.to_param, issue: {title: "New Title"}}
+
+      issue.reload
+      assigns(:issue).should eq(issue)
+      # issue.title.should eq "New Title"
+     end
   end
-
-
-
 end

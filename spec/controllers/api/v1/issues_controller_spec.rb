@@ -31,7 +31,7 @@ describe Api::V1::IssuesController do
           authentication_token: 'bad_token',
           format: :json
         }
-       response.code.should eq "401"
+        response.code.should eq "401"
       end
     end
   end

@@ -1,0 +1,22 @@
+%div{ class: "navbar-wrapper"} 
+  %div{ class: "container"}
+    %div.jumbotron
+      %h2
+        Hello, People
+      %p.lead
+        Post your neighborhood issues!
+        Get the issues fixed!
+      %p
+        %a{ :class => "btn btn-lg btn-success", href: "#", role: "button"}
+          Sign Up Here</a></p>    
+
+    -@issues.each do |issue| 
+      .row.col-lg-4
+        %h2{ href: "#" } #{issue.title}
+        %p{ class: "text-danger"}
+          %p #{issue.details}
+          %p
+            %a{ class: "btn btn-primary", href: "#", role: "button"}View details &raquo
+
+        
+        
