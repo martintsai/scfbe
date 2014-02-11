@@ -1,26 +1,23 @@
-class Api::V1::IssuesController < ApplicationController
-  protect_from_forgery with: :null_session
-
-  respond_to :json
+class Api::V1::IssuesController < Api::V1::BaseController
 
   # POST /api/issues
   # POST /api/issues.json
   def create
     @issue = Issue.new(issue_params)
-    #FIXME: just for testing
-    @issue.user_id = User.first.id
+    @issue.user_id = current_user.id
 
     if @issue.save
-      render nothing: true, status: :created
+      render json: @issue, status: :created
     else
       render json: @issue.errors, status: :unprocessable_entity
     end
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def issue_params
-      params.require(:issue).permit(:title, :details, :snapshot)
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def issue_params
+    params.require(:issue).permit(:title, :details, :snapshot)
+  end
 
 end
