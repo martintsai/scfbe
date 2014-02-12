@@ -57,3 +57,6 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 
 gem "therubyracer"
+
+# Cross-Origin Resource Sharing
+gem 'rack-cors', :require => 'rack/cors'
