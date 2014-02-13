@@ -16,15 +16,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  private
-
-  def generate_authentication_token
-    loop do
-      token = SecureRandom.hex
-      break token unless User.where(authentication_token: token).exists?
-    end
-  end
-
   def user_image
     if image.nil?
       "scf.jpg"
@@ -57,6 +48,15 @@ class User < ActiveRecord::Base
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
       end
+    end
+  end
+
+  private
+
+  def generate_authentication_token
+    loop do
+      token = SecureRandom.hex
+      break token unless User.where(authentication_token: token).exists?
     end
   end
 end
