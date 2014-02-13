@@ -1,3 +1,9 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.obscure { 
+position: absolute !important; 
+clip: rect(1px 1px 1px 1px); /* IE6, IE7 */ 
+clip: rect(1px, 1px, 1px, 1px); 
+} 

@@ -57,3 +57,14 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 
 gem "therubyracer"
+
+# interact with various cloud services
+gem 'fog'
+gem 'unf' 
+
+group :development, :test do
+ gem 'foreman'
+ gem 'dotenv-rails'
+end
+
+gem "fakefs", :require => "fakefs/safe"

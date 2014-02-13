@@ -7,6 +7,7 @@ class IssuesController < ApplicationController
   def index
     @issues = Issue.all
     @recent_issues = Issue.order({:created_at => :desc})
+    @comment = Comment.new
   end
 
   # GET /issues/1

@@ -9,6 +9,7 @@ describe Api::IssuesController do
       {
         title: "sth",
         detail: "problems",
+        snapshot: File.open(File.join(Rails.root, '/spec/support/images/test-image.jpg')),
       },
       format: :json
     }
