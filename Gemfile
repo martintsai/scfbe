@@ -55,6 +55,7 @@ gem "carrierwave"
 
 gem 'bootstrap-sass'
 gem 'haml-rails'
+gem 'omniauth-facebook'
 
 gem "therubyracer"
 

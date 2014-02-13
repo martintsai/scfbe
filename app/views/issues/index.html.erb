@@ -12,7 +12,7 @@
         <div class="panel-heading">  
           <%= link_to issue.title, issue %><br>
           <%= issue.details %><br>
-          <%= issue.created_at %> by <%= issue.user.email %> 
+          <%= issue.created_at %> by <%= current_user.email %> 
         </div>
 
         

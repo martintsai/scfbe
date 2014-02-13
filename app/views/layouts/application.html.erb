@@ -19,18 +19,18 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
             
             <% if current_admin %>
             <li><%= link_to "Admin Sign Out", destroy_admin_session_path, method: :delete %></li>
             <% end %>
             
             <% if current_user %>
-            <li><%= link_to "User Sign Out", destroy_user_session_path, method: :delete %></li>
+            <li><a href="#"><%= current_user.name %></a></li>
+            <li><%= image_tag(current_user.smallimage, :height => 45, :width => 45)%></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <% else %>
-            <li><%= link_to "User Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign In With Facebook", user_omniauth_authorize_path(:facebook) %></li>
             <% end %>
             
           </ul>
