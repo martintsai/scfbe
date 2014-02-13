@@ -7,7 +7,10 @@ Scfbe::Application.routes.draw do
   resources :issues
 
   namespace :api do
-    post 'issues' => 'issues#create'
+    namespace :v1 do
+      post 'issues' => 'issues#create', defaults: { format: :json }
+      post 'sessions' => 'sessions#create', defaults: { format: :json }
+    end
   end
 
 
