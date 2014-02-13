@@ -66,11 +66,11 @@ ActiveRecord::Schema.define(version: 20140213124909) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "authentication_token"
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
     t.string   "name"
-    t.string   "authentication_token"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
