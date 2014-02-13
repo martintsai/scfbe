@@ -55,8 +55,20 @@ gem "carrierwave"
 
 gem 'bootstrap-sass'
 gem 'haml-rails'
+gem 'omniauth-facebook'
 
 gem "therubyracer"
 
 # Cross-Origin Resource Sharing
 gem 'rack-cors', :require => 'rack/cors'
+
+# interact with various cloud services
+gem 'fog'
+gem 'unf'
+
+group :development, :test do
+ gem 'foreman'
+ gem 'dotenv-rails'
+end
+
+gem "fakefs", :require => "fakefs/safe"

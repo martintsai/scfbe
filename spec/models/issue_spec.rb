@@ -17,22 +17,5 @@ require 'spec_helper'
 
 		end
 
-		describe "#validates" do
-			
-			context "when the title is empty" do
-				it "should be invalid" do
-					issue = Issue.new(title: "")
-					issue.should_not be_valid
-				end
-			end
-
-			context "when title is provided" do 
-				it "should be valid" do
-					issue = Issue.new(title: "Problem Title")
-					issue.should be_valid 
-				end
-			end
 		
-		end
-	
 end

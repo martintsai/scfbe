@@ -3,7 +3,7 @@ Scfbe::Application.routes.draw do
   resources :comments
 
   devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :issues
 
   namespace :api do
@@ -13,6 +13,9 @@ Scfbe::Application.routes.draw do
     end
   end
 
+  # devise_scope :user do
+  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
