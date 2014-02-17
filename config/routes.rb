@@ -3,7 +3,7 @@ Scfbe::Application.routes.draw do
   resources :comments
 
   devise_for :admins
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
   resources :issues
 
   namespace :api do

@@ -6,6 +6,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=623743174357899";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -17,7 +26,7 @@
           </button>
           <a class="navbar-brand" href="/" >SCF</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse pull-right   ">
           <ul class="nav navbar-nav">
             
             <% if current_admin %>
@@ -25,11 +34,12 @@
             <% end %>
             
             <% if current_user %>
-            <li><a href="#"><%= current_user.name %></a></li>
+            <li><%= link_to "#{current_user.name}", edit_user_registration_path %></li>
             <li><%= image_tag(current_user.smallimage, :height => 45, :width => 45)%></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <% else %>
             <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><a class="fb-login-button fb-root" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" ></a></li>
             <li><%= link_to "Sign In With Facebook", user_omniauth_authorize_path(:facebook) %></li>
             <% end %>
             

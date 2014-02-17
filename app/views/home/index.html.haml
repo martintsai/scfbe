@@ -7,16 +7,6 @@
         Post your neighborhood issues!
         Get the issues fixed!
       %p
-        %a{ :class => "btn btn-lg btn-success", href: "#", role: "button"}
-          Sign Up Here</a></p>    
+        =link_to "Sign Up Here", new_user_registration_path, class: "btn btn-lg btn-primary"
 
-    -@issues.each do |issue| 
-      .row.col-lg-4
-        %h2{ href: "#" } #{issue.title}
-        %p{ class: "text-danger"}
-          %p #{issue.details}
-          %p
-            %a{ class: "btn btn-primary", href: "#", role: "button"}View details &raquo
-
-        
         
