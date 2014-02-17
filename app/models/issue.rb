@@ -1,13 +1,8 @@
 class Issue < ActiveRecord::Base
-
+  mount_uploader :snapshot, SnapshotUploader
 	belongs_to :user
-
 	has_many :comments
 
-  mount_uploader :snapshot, SnapshotUploader
-
-  validates :title, :snapshot, presence: true
-	
-	
-
+  # validates :title, :snapshot, presence: true
+  validates :title, presence: true
 end
