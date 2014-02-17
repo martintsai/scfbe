@@ -17,7 +17,11 @@ class Api::V1::IssuesController < Api::V1::BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def issue_params
-    params.require(:issue).permit(:title, :details, :snapshot)
+    p = params.require(:issue).permit(:title, :details, :snapshot, :image_base64)
+    if p[:image_base64]
+      p[:snapshot] = CarrierwaveIO.new(Base64.decode64(p.delete(:image_base64)))
+      p
+    end
   end
 
 end
