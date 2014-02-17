@@ -8,11 +8,11 @@
     <br>
     <% @recent_issues.each do |issue| %>
       
-      <div class="panel panel-default">
+      <div class="panel panel-default panel-customization">
         <div class="panel-heading">  
           <%= link_to issue.title, issue %><br>
           <%= issue.details %><br>
-          <%= issue.created_at %> by <%= current_user.email %> 
+          <%= issue.created_at %> by <%= current_user.name %> 
         </div>
 
         
@@ -23,7 +23,7 @@
               <% issue.comments.each do |comment| %>
                 <div class="panel panel-default">
                   <div class="panel-heading">  
-                    <%= comment.user.email %><br>
+                    <%= comment.user.name %><br>
                     <%= comment.content %><br>
                     <%= comment.created_at %>
 
