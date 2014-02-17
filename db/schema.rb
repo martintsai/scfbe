@@ -66,11 +66,11 @@ ActiveRecord::Schema.define(version: 20140216170037) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "authentication_token"
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
     t.string   "name"
-    t.string   "authentication_token"
     t.string   "neighbourhood"
   end
 
