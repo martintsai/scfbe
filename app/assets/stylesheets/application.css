@@ -19,3 +19,10 @@
  *= require formtastic-display
  *= require formtastic-bootstrap
  */
+
+#logo {
+  font-family: 'Lemon';
+  font-size: 3em;
+  color: #ffdd00;
+  text-shadow: -2px -2px 0px #aaa;
+}
