@@ -34,5 +34,10 @@ module Scfbe
       end
     end
 
+    # overwrite default X-Frame-Options =SAMEORIGIN
+    # which refuse to display application in a frame
+    config.action_dispatch.default_headers = {
+        'X-Frame-Options' => 'ALLOWALL'
+    }
   end
 end
