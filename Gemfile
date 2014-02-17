@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -35,40 +32,29 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'debugger'
+  gem 'sqlite3'
+
+  gem 'foreman'
+  gem 'dotenv-rails'
+  gem "fakefs", :require => "fakefs/safe"
+end
+
+group :production do
+  gem 'pg'
 end
 
 gem 'devise'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-gem 'debugger', group: [:development, :test]
-
 gem "carrierwave"
-
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'omniauth-facebook'
 
 gem "therubyracer"
-
 # Cross-Origin Resource Sharing
 gem 'rack-cors', :require => 'rack/cors'
-
 # interact with various cloud services
 gem 'fog'
 gem 'unf'
 
-group :development, :test do
- gem 'foreman'
- gem 'dotenv-rails'
-end
 
-gem "fakefs", :require => "fakefs/safe"
