@@ -9,5 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap
+ *= require bootstrap-theme
+ *= require home
+ *= require comments
+ *= require issues
+ *= require scaffolds
+ *= require formtastic
+ *= require formtastic-display
+ *= require formtastic-bootstrap
  */

@@ -17,7 +17,7 @@
           </button>
           <a class="navbar-brand" href="/" >SCF</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse pull-right   ">
           <ul class="nav navbar-nav">
             
             <% if current_admin %>
@@ -25,7 +25,7 @@
             <% end %>
             
             <% if current_user %>
-            <li><a href="#"><%= current_user.name %></a></li>
+            <li><%= link_to "#{current_user.name}", edit_user_registration_path %></li>
             <li><%= image_tag(current_user.smallimage, :height => 45, :width => 45)%></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <% else %>

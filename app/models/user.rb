@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   def user_image
     if image.nil?
-      "scf.jpg"
+      "scf.png"
     else
       image
     end
