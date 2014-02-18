@@ -18,7 +18,13 @@
 
 
         <div class="panel-body">
-          <%= image_tag issue.snapshot %><br>
+          <%= image_tag issue.snapshot %>
+          <%= tag("div", class:'map', id:"map_#{issue.id}",
+            data:{
+              latitude: issue.latitude,
+              longitude: issue.longitude,
+              address: issue.address
+            }) if issue.location %>
 
           <% if issue.comments.count > 0 %>
             <% issue.comments.each do |comment| %>
@@ -31,7 +37,7 @@
               </div>
             <% end %>
           <% end %>
-        </div>
+        </div>app
 
         <%= form_for(@comment) do |f| %>
           <div class="field">
@@ -50,6 +56,25 @@
   </div>
 </div>
 
-
+<% content_for :view_scripts do %>
+  <script type="text/javascript">
+    $('.map').each(function(index,element){
+      var $this = $(this),
+          lat = $this.data('latitude'),
+          lng = $this.data('longitude'),
+          adr = $this.data('address'),
+          map = new GMaps({
+            div: '#' + $this.attr('id'),
+            lat: lat,
+            lng: lng
+          });
+      map.addMarker({
+        lat: lat,
+        lng: lng,
+        infoWindow: { content: adr }
+      });
+    })
+  </script>
+<% end %>
 
 

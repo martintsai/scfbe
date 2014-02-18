@@ -6,8 +6,6 @@ class Api::V1::IssuesController < Api::V1::BaseController
     @issue = Issue.new(issue_params)
     @issue.user_id = current_user.id
 
-    debugger
-
     if @issue.save
       render json: @issue, status: :created
     else
