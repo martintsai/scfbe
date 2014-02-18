@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216170037) do
+ActiveRecord::Schema.define(version: 20140218011140) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20140216170037) do
   end
 
   add_index "issues", ["user_id"], name: "index_issues_on_user_id"
+
+  create_table "locations", force: true do |t|
+    t.string  "address"
+    t.decimal "latitude",       precision: 15, scale: 10
+    t.decimal "longitude",      precision: 15, scale: 10
+    t.integer "locatable_id"
+    t.string  "locatable_type"
+  end
+
+  add_index "locations", ["locatable_id", "locatable_type"], name: "index_locations_on_locatable_id_and_locatable_type"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

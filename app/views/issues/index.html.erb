@@ -7,32 +7,32 @@
     <br>
     <br>
     <% @recent_issues.each do |issue| %>
-      
+
       <div class="panel panel-default panel-customization">
-        <div class="panel-heading">  
+        <div class="panel-heading">
           <%= link_to issue.title, issue %><br>
           <%= issue.details %><br>
-          <%= issue.created_at %> by <%= current_user.name %> 
+          Found at <%= issue.location ? issue.address : 'location unknown' %>, reported by
+          <%= issue.user.email %> on <%= issue.created_at %>
         </div>
 
-        
-          <div class="panel-body">  
-            <%= image_tag issue.snapshot %><br>
 
-            <% if issue.comments.count > 0 %>
-              <% issue.comments.each do |comment| %>
-                <div class="panel panel-default">
-                  <div class="panel-heading">  
-                    <%= comment.user.name %><br>
-                    <%= comment.content %><br>
-                    <%= comment.created_at %>
+        <div class="panel-body">
+          <%= image_tag issue.snapshot %><br>
 
-                  </div>
+          <% if issue.comments.count > 0 %>
+            <% issue.comments.each do |comment| %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <%= comment.user.name %><br>
+                  <%= comment.content %><br>
+                  <%= comment.created_at %>
                 </div>
-            <% end %>    
+              </div>
+            <% end %>
           <% end %>
         </div>
-        
+
         <%= form_for(@comment) do |f| %>
           <div class="field">
             <div class="obscure"><%= f.label :content %></div><br>
@@ -44,12 +44,12 @@
             <%= f.submit %>
           </div>
         <% end %>
-      
+
       </div>
     <% end %>
   </div>
 </div>
-  
+
 
 
 
