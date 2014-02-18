@@ -87,6 +87,7 @@ GEM
       actionpack (>= 3.0)
     formtastic-bootstrap (2.1.3)
       formtastic (~> 2.2)
+    geocoder (1.1.9)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -232,6 +233,7 @@ DEPENDENCIES
   foreman
   formtastic (= 2.3.0.rc2)
   formtastic-bootstrap
+  geocoder
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails

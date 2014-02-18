@@ -47,17 +47,16 @@ end
 gem 'devise'
 gem "carrierwave"
 gem "mini_magick"
+gem 'geocoder'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'omniauth-facebook'
 gem 'formtastic', '2.3.0.rc2'
 gem 'formtastic-bootstrap'
-
 gem "therubyracer"
 # Cross-Origin Resource Sharing
 gem 'rack-cors', :require => 'rack/cors'
 # interact with various cloud services
 gem 'fog'
 gem 'unf'
-
 
